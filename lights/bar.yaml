@@ -1,0 +1,6 @@
+- platform: group
+  name: Bar Accent
+  entities:
+    - light.kit_bar_east
+    - light.kit_bar_west
+

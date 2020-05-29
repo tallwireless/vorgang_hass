@@ -1,0 +1,23 @@
+- platform: mqtt
+  name: Zigbee2mqtt Bridge state
+  state_topic: "zigbee2mqtt/bridge/state"
+  icon: mdi:router-wireless
+- platform: mqtt
+  name: Zigbee2mqtt Log State
+  state_topic: "zigbee2mqtt/bridge/config"
+  value_template: "{{ value_json.log_level }}"
+- platform: mqtt
+  name: Zigbee2mqtt Join State
+  state_topic: "zigbee2mqtt/bridge/config"
+  value_template: "{{ value_json.permit_join }}"
+- platform: mqtt
+  name: Coordinator Version
+  state_topic: "zigbee2mqtt/bridge/config"
+  value_template: "{{ value_json.coordinator }}"
+  icon: mdi:chip
+- platform: mqtt
+  name: Zigbee2mqtt Version
+  state_topic: "zigbee2mqtt/bridge/config"
+  value_template: "{{ value_json.version }}"
+  icon: mdi:zigbee
+

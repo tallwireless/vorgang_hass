@@ -1,0 +1,9 @@
+kit_under_cabinet_level:
+    name: Kitchen Under Cabinet Level
+    options:
+      - 255
+      - 175
+      - 100
+      - 0
+      - -1
+  

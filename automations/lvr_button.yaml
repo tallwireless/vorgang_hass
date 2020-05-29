@@ -1,0 +1,130 @@
+- id: lvr_button_brightness_up_click
+  initial_state: true
+  alias: First Floor - Relax 1
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/lvr_button
+  condition:
+    condition: template
+    value_template: '{{ "brightness_up_click" == trigger.payload_json.action }}'
+  action:
+  - service: scene.turn_on
+    data:
+        entity_id: scene.relax_1
+
+- id: lvr_button_brightness_up_hold
+  initial_state: true
+  alias: First Floor - Fan (Medium)
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/lvr_button
+  condition:
+    condition: template
+    value_template: '{{ "brightness_up_hold" == trigger.payload_json.action }}'
+  action:
+  - service: fan.turn_on
+    data:
+        entity_id: fan.living_room
+        speed: medium
+
+- id: lvr_button_brightness_down_click
+  initial_state: true
+  alias: First Floor - Full On
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/lvr_button
+  condition:
+    condition: template
+    value_template: '{{ "brightness_down_click" == trigger.payload_json.action }}'
+  action:
+  - service: scene.turn_on
+    data:
+        entity_id: scene.first_floor_full_on
+
+- id: lvr_button_brightness_down
+  initial_state: true
+  alias: First Floor - Fan (Off)
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/lvr_button
+  condition:
+    condition: template
+    value_template: '{{ "brightness_down_hold" == trigger.payload_json.action }}'
+  action:
+  - service: fan.turn_off
+    data:
+        entity_id: fan.living_room
+        
+
+- id: lvr_button_arrow_right_click
+  initial_state: true
+  alias: First Floor - Relax 2
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/lvr_button
+  condition:
+    condition: template
+    value_template: '{{ "arrow_right_click" == trigger.payload_json.action }}'
+  action:
+  - service: scene.turn_on
+    data:
+        entity_id: scene.relax_2
+
+- id: lvr_button_arrow_right_hold
+  initial_state: true
+  alias: First Floor - Fan (High)
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/lvr_button
+  condition:
+    condition: template
+    value_template: '{{ "arrow_right_hold" == trigger.payload_json.action }}'
+  action:
+  - service: fan.turn_on
+    data:
+        entity_id: fan.living_room
+        speed: high
+
+- id: lvr_button_arrow_left_click
+  initial_state: true
+  alias: First Floor - Relax 3
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/lvr_button
+  condition:
+    condition: template
+    value_template: '{{ "arrow_left_click" == trigger.payload_json.action }}'
+  action:
+  - service: scene.turn_on
+    data:
+        entity_id: scene.relax_3
+
+- id: lvr_button_arrow_left_hold
+  initial_state: true
+  alias: First Floor - Fan (Low)
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/lvr_button
+  condition:
+    condition: template
+    value_template: '{{ "arrow_left_hold" == trigger.payload_json.action }}'
+  action:
+  - service: fan.turn_on
+    data:
+        entity_id: fan.living_room
+        speed: low
+
+- id: lvr_button_toggle
+  initial_state: true
+  alias: First Floor - Off
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/lvr_button
+  condition:
+    condition: template
+    value_template: '{{ "toggle" == trigger.payload_json.action }}'
+  action:
+  - service: scene.turn_on
+    data:
+        entity_id: scene.turn_off_first_floor
+

@@ -1,0 +1,11 @@
+- name: uph-evening
+  icon: mdi:bed-empty
+  entities:
+    light.uph_overhead_south:
+      state: on
+      brightness: 122
+      xy_color: [0.701,0.299]
+    light.uph_overhead_north:
+      state: on
+      brightness: 122
+      xy_color: [0.136,0.04]

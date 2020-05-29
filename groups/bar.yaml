@@ -1,0 +1,6 @@
+bar_accent:
+  name: Bar Accent
+  entities:
+     - light.bar_accent_east
+     - light.bar_accent_west
+

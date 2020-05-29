@@ -1,0 +1,54 @@
+- alias: Bedroom Bed Button (double)
+  id: button_bedroom_bed_button_door_double
+  initial_state: true
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/smartthings_button_05
+  condition:
+    condition: template
+    value_template: '{{ "double" == trigger.payload_json.click }}'
+  action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.all_off
+
+- id: button_bedroom_bed_button_door_single_turn_on
+  initial_state: true
+  alias: Bedroom Bed Button Door (single)
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/smartthings_button_05
+  condition:
+    condition: and
+    conditions:
+        - condition: template
+          value_template: '{{ "single" == trigger.payload_json.click }}'
+        - condition: state
+          entity_id: light.back_bedroom
+          state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+        entity_id: light.back_bedroom
+        brightness: 255
+        kelvin: !secret standard_kelvin
+
+- id: button_bedroom_bed_button_door_single_turn_off
+  initial_state: true
+  alias: Bedroom Bed Button Door (single)
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/smartthings_button_05
+  condition:
+    condition: and
+    conditions:
+        - condition: template
+          value_template: '{{ "single" == trigger.payload_json.click }}'
+        - condition: state
+          entity_id: light.back_bedroom
+          state: 'on'
+  action:
+  - service: light.turn_off
+    data:
+        entity_id: light.back_bedroom
+

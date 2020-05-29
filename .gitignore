@@ -1,0 +1,12 @@
+*.db
+*.txt
+*.log
+.storage/
+.uuid
+secrets.yaml
+
+index.html
+options.xml
+pyozw.sqlite
+zwcfg_0xf72de39a.xml
+zwscene.xml

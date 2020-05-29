@@ -1,0 +1,32 @@
+- id: all_off
+  name: All Off
+  entities:
+    group.second_floor_lights:
+        state: off
+    group.first_floor_lights:
+        state: off
+    switch.str_xmas_lights:
+        state: off
+    group.outside_lights:
+        state: off
+
+- id: leave_house
+  name: Leaving House
+  entities:
+      group.first_floor_lights:
+          state: off
+      group.second_floor_lights:
+          state: off
+
+- id: first_floor_off
+  name: Turn Off First Floor
+  entities:
+      light.lvr_overhead:
+          state: off
+      light.drm_overhead:
+          state: off
+      light.kit_overhead:
+          state: off
+      group.first_floor_lights:
+          state: off
+

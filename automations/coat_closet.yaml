@@ -1,0 +1,27 @@
+- id: clo_door_open
+  initial_state: true
+  alias: Coat Closet - Open
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/clo_door
+  condition:
+    condition: template
+    value_template: '{{ false == trigger.payload_json.contact }}'
+  action:
+  - service: switch.turn_on
+    data:
+      entity_id: switch.clo_door
+
+- id: clo_door_closed
+  initial_state: true
+  alias: Coat Closet - Closed
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/clo_door
+  condition:
+    condition: template
+    value_template: '{{ true == trigger.payload_json.contact }}'
+  action:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.clo_door

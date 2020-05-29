@@ -1,0 +1,30 @@
+- id: living_room_double_tap_off
+  alias: Living Room - Double Tap Off
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: zwave.node_event
+    event_data:
+      entity_id: zwave.living_room_overhead
+      basic_level: 0
+  action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.leaving_house
+
+- id: living_room_double_tap_on
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: zwave.node_event
+    event_data:
+      entity_id: zwave.living_room_overhead
+      basic_level: 255
+  action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.relax_2
+  - service: scene.turn_on
+    data:
+        entity_id: scene.bedtime
+

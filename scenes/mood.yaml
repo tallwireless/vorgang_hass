@@ -1,0 +1,132 @@
+- id: relax_1
+  name: Relax 1
+  entities:
+    light.lvr_couch_north:
+      state: on
+      brightness_pct: 15
+    light.lvr_couch_south:
+      state: on
+      brightness_pct: 15
+    light.dinning_room_accent:
+      state: on
+      profile: orange-accent
+    light.lvr_tv:
+        state: on
+        profile: orange-accent
+    light.bar_accent:
+        state: on
+        profile: orange-accent
+    light.drm_overhead:
+      state: off
+    light.kit_overhead:
+      state: off
+    light.lvr_overhead:
+      state: off
+    light.kit_above_cabinet:
+        state: on
+        profile: orange-accent
+        brightness_pct: 75
+    light.kit_under_cabinet:
+        state: on
+        profile: white-full
+        white_value: 100
+        brightness_pct: 1
+
+- id: relax_2
+  name: Relax 2
+  entities:
+    light.lvr_couch_north:
+      state: on
+      brightness_pct: 15
+    light.lvr_couch_south:
+      state: on
+      brightness_pct: 15
+    light.dinning_room_accent:
+      state: on
+      profile: green-accent
+    light.bar_accent:
+      state: on
+      profile: green-accent
+    light.lvr_tv:
+        state: on
+        profile: green-accent
+    light.drm_overhead:
+      state: off
+    light.kit_overhead:
+      state: off
+    light.lvr_overhead:
+      state: off
+    light.kit_above_cabinet:
+        state: on
+        profile: green-accent
+        brightness_pct: 75
+    light.kit_under_cabinet:
+        state: on
+        profile: white-full
+        white_value: 100
+        brightness_pct: 1
+
+- id: relax_3
+  name: Relax 3
+  entities:
+   light.lvr_couch_north:
+      state: on
+      brightness_pct: 15
+   light.lvr_couch_south:
+      state: on
+      brightness_pct: 15
+   light.lvr_tv:
+      state: on
+      profile: blue-accent
+   light.dinning_room_accent:
+      state: on
+      profile: blue-accent
+   light.bar_accent:
+      state: on
+      profile: blue-accent
+   light.drm_overhead:
+      state: off
+   light.kit_overhead:
+      state: off
+   light.lvr_overhead:
+      state: off
+   light.kit_above_cabinet:
+        state: on
+        profile: blue-accent
+        brightness_pct: 75
+   light.kit_under_cabinet:
+        state: on
+        profile: white-full
+        white_value: 100
+        brightness_pct: 1
+
+- id: first_floor_full_on
+  name: First Floor Full On
+  entities:
+      light.lvr_couch_north:
+        state: on
+        brightness_pct: 75
+      light.lvr_couch_south:
+        state: on
+        brightness_pct: 75
+      light.first_floor_dimmers:
+          state: on
+          brightness_pct: 75
+      light.bar_accent:
+          state: on
+          brightness_pct: 75
+          kelvin: 2700
+      light.dinning_room_accent:
+          state: on
+          brightness_pct: 75
+          kelvin: 2700
+      light.kit_above_cabinet:
+          state: on
+          brightness_pct: 75
+          kelvin: 2700
+      light.kit_under_cabinet:
+          state: on
+          kelvin: 2700
+          brightness_pct: 1
+          white_value: 255
+

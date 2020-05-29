@@ -1,0 +1,31 @@
+- id: kit_button_microwave_single
+  initial_state: true
+  alias: Aqara Button 01 - Single
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/kit_button_microwave
+  condition:
+    condition: template
+    value_template: '{{ "single" == trigger.payload_json.click }}'
+  action:
+  - service: script.turn_on
+    data:
+        entity_id: script.kit_under_cabinet_toggle
+
+- id: kit_button_microwave_double
+  initial_state: true
+  alias: Aqara Button 01 - Double
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/kit_button_microwave
+  condition:
+    condition: template
+    value_template: '{{ "double" == trigger.payload_json.click }}'
+  action:
+  - service: script.turn_on
+    data:
+        entity_id: script.kit_under_cabinet_toggle
+  - service: light.turn_off
+    data:
+        entity_id: light.kit_above_cabinet
+

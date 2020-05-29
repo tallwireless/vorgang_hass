@@ -1,0 +1,8 @@
+- platform: group
+  name: Front Bedroom - Overhead
+  entities:
+      - light.fbr_overhead_nw
+      - light.fbr_overhead_ne
+      - light.fbr_overhead_se
+      - light.fbr_overhead_sw
+

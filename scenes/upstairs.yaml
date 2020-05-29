@@ -1,0 +1,11 @@
+- name: Upstairs Full
+  entities:
+      lights.upstairs_hallway:
+       state: on
+       profile: white-full
+       brightness_pct: 100
+
+- name: Upstairs Off
+  entities:
+    group.upstairs:
+      state: off

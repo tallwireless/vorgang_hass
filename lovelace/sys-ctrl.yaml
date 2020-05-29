@@ -1,0 +1,56 @@
+---
+title: System Control
+cards:
+ - type: vertical-stack
+   cards:
+     - type: entities
+       title: Front Door Lock
+       show_header_toggle: false
+       entities:
+           - input_select.lock_zwave_option_15_front
+     - type: horizontal-stack
+       cards:
+          - type: entities
+            title: Temporary Code No. 1
+            show_header_toggle: false
+            entities:
+                - input_select.door_keypad_16_access_schedule
+                - input_text.door_keypad_16_name
+                - input_text.door_keypad_16_code
+                - input_boolean.door_keypad_16_front_switch
+                - script.door_keypad_16_delete
+          - type: entities
+            title: Temporary Code No. 2
+            show_header_toggle: false
+            entities:
+                - input_select.door_keypad_17_access_schedule
+                - input_text.door_keypad_17_name
+                - input_text.door_keypad_17_code
+                - input_boolean.door_keypad_17_front_switch
+                - script.door_keypad_17_delete
+
+   
+ - title: Zigbee2mqtt
+   type: entities
+   show_header_toggle: false
+   entities:
+     - entity: sensor.zigbee2mqtt_bridge_state
+     - entity: sensor.zigbee2mqtt_version
+     - entity: sensor.coordinator_version
+     - entity: input_select.zigbee2mqtt_log_level
+     - type: divider
+     - entity: switch.zigbee2mqtt_main_join
+     - entity: timer.zigbee_permit_join
+     - type: divider
+     - entity: input_text.zigbee2mqtt_old_name
+     - entity: input_text.zigbee2mqtt_new_name
+     - entity: script.zigbee2mqtt_rename
+     - type: divider
+     - entity: input_text.zigbee2mqtt_remove
+     - entity: script.zigbee2mqtt_remove
+ 
+ - type: entities
+   title: Scene Variables
+   show_header_toggle: false
+   entities:
+    - input_boolean.guest

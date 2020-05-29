@@ -1,0 +1,110 @@
+---
+title: Quick Options
+cards:
+  - type: glance
+    show_state: false
+    title: Whole House
+    entities:
+      - entity: scene.all_off
+        tap_action: 
+            action: call-service
+            service: scene.turn_on
+            service_data:
+               entity_id: scene.all_off
+      - entity: scene.leaving_house
+        tap_action: 
+            action: call-service
+            service: scene.turn_on
+            service_data:
+               entity_id: scene.leaving_house
+        
+  - type: glance
+    title: Upstairs
+    show_state: false
+    entities:
+      - type: entity-button
+        icon: mdi:bed-empty
+        tap_action: 
+            action: call-service
+            service: scene.turn_on
+            service_data:
+               entity_id: scene.bedtime
+        entity: scene.uph_evening
+        name: Upstairs Evening
+      - type: entity-button
+        tap_action: 
+            action: call-service
+            service: scene.turn_on
+            service_data:
+               entity_id: scene.relax_2
+        entity: scene.relax_2
+        name: Green Mood
+      - type: entity-button
+        tap_action: 
+            action: call-service
+            service: scene.turn_on
+            service_data:
+               entity_id: scene.relax_3
+        entity: scene.relax_3
+        name: Blue Mood
+      - type: entity-button
+        tap_action: 
+            action: call-service
+            service: scene.turn_on
+            service_data:
+               entity_id: scene.relax_1
+        entity: scene.relax_1
+        name: Orange Mood
+  - type: vertical-stack
+    title: Living Room Camera
+    cards:
+      - type: picture-entity
+        entity: camera.lvr_camera
+      - type: horizontal-stack
+        cards:
+            - type: entity-button
+              show_icon: false
+              name: General View
+              entity: camera.lvr_camera
+              tap_action:
+                  action: call-service
+                  service: amcrest.goto_preset
+                  service_data: 
+                    entity_id: camera.lvr_camera
+                    preset: 3
+            - type: entity-button
+              show_icon: false
+              name: Front Door
+              entity: camera.lvr_camera
+              tap_action:
+                  action: call-service
+                  service: amcrest.goto_preset
+                  service_data: 
+                    entity_id: camera.lvr_camera
+                    preset: 4
+            - type: entity-button
+              show_icon: false
+              name: Kitchen
+              entity: camera.lvr_camera
+              tap_action:
+                  action: call-service
+                  service: amcrest.goto_preset
+                  service_data: 
+                    entity_id: camera.lvr_camera
+                    preset: 5
+  - type: vertical-stack
+    cards:
+      - type: light
+        name: "First Floor Dimmers"
+        entity: light.first_floor_dimmers
+      - type: horizontal-stack
+        cards:
+            - type: light
+              entity: light.lvr_overhead
+              name: "Living Room" 
+            - type: light
+              entity: light.drm_overhead
+              name: "Dining Room" 
+            - type: light
+              entity: light.kit_overhead
+              name: " Kitchen " 

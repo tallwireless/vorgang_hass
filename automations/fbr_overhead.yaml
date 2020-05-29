@@ -1,0 +1,80 @@
+- id: front_bedroom_double_tap_off
+  alias: Front Bedroom - Double Tap Off
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: zwave.node_event
+    event_data:
+      entity_id: zwave.fbr_overhead
+      basic_level: 0
+  action:
+  - service: switch.turn_off
+    data:
+      entity_id: switch.fbr_closet
+  - service: switch.turn_off
+    data:
+      entity_id: switch.fbr_desk_candle
+  - service: switch.turn_off
+    data:
+      entity_id: switch.fbr_overhead
+  - service: light.turn_off
+    data:
+      entity_id: light.fbr_desk_webcam_light
+  - service: light.turn_off
+    data:
+        entity_id: light.fbr_desk_monitor_under
+  - service: light.turn_off
+    data:
+        entity_id: light.fbr_desk_monitor_back
+  - service: light.turn_off
+    data:
+        entity_id: light.front_bedroom_overhead
+  - service: media_player.turn_off
+    data:
+        entity_id: media_player.fbr_tv
+
+- id: front_bedroom_double_tap_on
+  initial_state: true
+  trigger:
+  - platform: event
+    event_type: zwave.node_event
+    event_data:
+      entity_id: zwave.fbr_overhead
+      basic_level: 255
+  action:
+  - service: light.turn_on
+    data:
+        entity_id: light.fbr_desk_monitor_under
+  - service: light.turn_on
+    data:
+        entity_id: light.fbr_desk_monitor_back
+        effect: "Slow Wide Rainbow"
+  - service: switch.turn_on
+    data:
+      entity_id: switch.fbr_desk_candle
+
+- id: front_bedroom_on
+  initial_state: true
+  trigger:
+      - platform: state
+        entity_id: switch.fbr_overhead
+        from: 'off'
+        to: 'on'
+  action:
+      - service: light.turn_on
+        data:
+            entity_id: light.front_bedroom_overhead
+            brightness: 255
+            kelvin: 2700
+
+- id: front_bedroom_off
+  initial_state: true
+  trigger:
+      - platform: state
+        entity_id: switch.fbr_overhead
+        from: 'on'
+        to: 'off'
+  action:
+      - service: light.turn_off
+        data:
+            entity_id: light.front_bedroom_overhead

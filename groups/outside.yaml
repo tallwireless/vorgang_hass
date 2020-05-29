@@ -1,0 +1,3 @@
+outside_lights:
+    entities:
+        - switch.out_front_porch

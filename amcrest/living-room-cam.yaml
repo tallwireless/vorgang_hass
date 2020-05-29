@@ -1,0 +1,5 @@
+- host: 172.18.0.70
+  name: lvr_camera
+  username: !secret amcrest_user
+  password: !secret amcrest_pw
+

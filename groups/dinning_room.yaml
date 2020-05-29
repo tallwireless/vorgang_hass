@@ -1,0 +1,7 @@
+dinning_room_lights:
+   name: Dinning Room
+   entities:
+     - light.drm_overhead
+     - light.drm_accent_middle
+     - light.drm_accent_north
+     - light.drm_accent_south

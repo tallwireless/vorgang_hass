@@ -1,0 +1,11 @@
+upstairs_hallway_lights:
+    entities:
+      - light.uph_overhead_north
+      - light.uph_overhead_south
+
+second_floor_lights:
+  name: Second Floor
+  entities:
+      - group.front_bedroom_lights
+      - group.upstairs_hallway_lights
+      - switch.bathroom

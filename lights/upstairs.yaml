@@ -1,0 +1,5 @@
+- platform: group
+  name: Upstairs Hallway
+  entities:
+      - light.uph_overhead_north
+      - light.uph_overhead_south

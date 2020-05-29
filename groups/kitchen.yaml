@@ -1,0 +1,15 @@
+kitchen_lights:
+  name: Kitchen
+  entities:
+     - light.kit_overhead
+     - light.kit_under_cabinet
+     - light.kit_above_cabinet
+     - light.kit_bar_east
+     - light.kit_bar_west
+
+
+kitchen_accent:
+    name: Kitchen - Accents
+    entities:
+     - light.kit_above_cabinet
+     - light.kit_under_cabinet

@@ -1,0 +1,122 @@
+door_keypad_1_access_schedule:
+  name: Access Schedule
+  options:
+    - Always
+    - Recurring
+    - Temporary
+door_keypad_2_access_schedule:
+  name: Access Schedule
+  options:
+    - Always
+    - Recurring
+    - Temporary
+door_keypad_3_access_schedule:
+  name: Access Schedule
+  options:
+    - Always
+    - Recurring
+    - Temporary
+door_keypad_4_access_schedule:
+  name: Access Schedule
+  options:
+    - Always
+    - Recurring
+    - Temporary
+door_keypad_5_access_schedule:
+  name: Access Schedule
+  options:
+    - Always
+    - Recurring
+    - Temporary
+door_keypad_6_access_schedule:
+  name: Access Schedule
+  options:
+    - Always
+    - Recurring
+    - Temporary
+door_keypad_7_access_schedule:
+  name: Access Schedule
+  options:
+    - Always
+    - Recurring
+    - Temporary
+door_keypad_8_access_schedule:
+  name: Access Schedule
+  options:
+    - Always
+    - Recurring
+    - Temporary
+
+lock_zwave_option_3_front:
+    name: Enable or disable the beeper.
+    options:
+        - Enable Beeper
+        - Disable Beeper
+
+lock_zwave_option_4_front:
+    name: Prevents all user codes from unlocking the deadbolt
+    options:
+        - Disable Vacation Mode
+        - Enable Vacation Mode
+
+lock_zwave_option_5_front:
+    name: Press the Outside Schlage Button to lock the deadbolt
+    options:
+        - Enable Lock & Leave
+        - Disable Lock & Leave
+
+lock_zwave_option_7_front:
+    name: Alarm sounds based on door activity
+    options:
+        - Alarm Off
+        - Activity
+        - Tamper
+        - Forced Entry
+
+lock_zwave_option_8_front:
+    name: Activity Alarm Sensitivity
+    options:
+        - Medium Sensitivity
+        - Most Sensitive
+        - Medium/high Sensitivity
+        - Medium/low Sensitivity
+        - Least Sensitivity
+
+lock_zwave_option_9_front:
+    name: Tamper Alarm Sensitivity
+    options:
+        - Medium Sensitivity
+        - Most Sensitive
+        - Medium/high Sensitivity
+        - Medium/low Sensitivity
+        - Least Sensitivity
+
+lock_zwave_option_10_front:
+    name: Forced Entry Alarm Sensitivity
+    options:
+        - Medium Sensitivity
+        - Most Sensitive
+        - Medium/high Sensitivity
+        - Medium/low Sensitivity
+        - Least Sensitivity
+
+lock_zwave_option_11_front:
+    name: Disable Local Alarm Controls
+    options:
+        - Enable local alarm controls
+        - Disable local alarm controls
+
+lock_zwave_option_15_front:
+    name: Auto lock
+    options:
+        - Disable auto lock
+        - Enable auto lock
+
+lock_zwave_option_16_front:
+    name: User code pin length (changing Length erases all codes)
+    options:
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8

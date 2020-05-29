@@ -1,0 +1,9 @@
+light.drm_overhead:
+  ignored: false
+  polling_intensity: 1
+light.lvr_overhead:
+  ignored: false
+  polling_intensity: 1
+light.kit_overhead:
+  ignored: false
+  polling_intensity: 1

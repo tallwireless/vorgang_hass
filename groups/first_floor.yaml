@@ -1,0 +1,27 @@
+first_floor_dimmers:
+  entities:
+    - light.lvr_overhead
+    - light.drm_overhead
+    - light.kit_overhead
+
+
+coat_closet_lights:
+    entities:
+        - switch.clo_overhead
+
+first_floor_lights:
+    entities:
+        - group.living_room_lights
+        - group.dinning_room_lights
+        - group.kitchen_lights
+        - group.coat_closet_lights
+
+first_floor_accents:
+   name: First Floor Accents
+   entities:
+        - light.bar_accent
+        - light.dinning_room_accent
+        - light.kit_above_cabinet
+        - light.lvr_tv
+        - light.kit_under_cabinet
+

@@ -1,0 +1,6 @@
+- platform: group
+  name: Dinning Room Accent
+  entities:
+    - light.drm_accent_middle
+    - light.drm_accent_north
+    - light.drm_accent_south

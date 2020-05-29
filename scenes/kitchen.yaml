@@ -1,0 +1,8 @@
+- id: kitchen_cabinet_working
+  name: Kitchen Cabinet - Working
+  entities:
+    light.kit_above_cabinet:
+        state: on 
+        rgb_color: [ 255,255,0]
+        effect: colorloop
+

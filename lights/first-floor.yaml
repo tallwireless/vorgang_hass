@@ -1,0 +1,7 @@
+- platform: group
+  name: First Floor Dimmers
+  entities:
+      - light.lvr_overhead
+      - light.drm_overhead
+      - light.kit_overhead
+

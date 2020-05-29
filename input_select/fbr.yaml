@@ -1,0 +1,9 @@
+fbr_under_monitor_level:
+    name: Desk Under Monitor
+    options:
+      - 255
+      - 175
+      - 100
+      - 0
+      - -1
+  

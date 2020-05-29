@@ -1,0 +1,7 @@
+- platform: group
+  name: Kitchen Accents
+  entities:
+     - light.kit_above_cabinet
+     - light.kit_under_cabinet
+
+

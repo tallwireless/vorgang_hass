@@ -1,0 +1,235 @@
+- platform: yr
+- platform: template
+  sensors:
+
+    keypad_1_temp_lock_turn_on:
+      friendly_name: Turn keypad 1 on
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_1_date_start'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_1_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_2_temp_lock_turn_on:
+      friendly_name: Turn keypad 2 on
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_2_date_start'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_2_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_3_temp_lock_turn_on:
+      friendly_name: Turn keypad 3 on
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_3_date_start'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_3_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_4_temp_lock_turn_on:
+      friendly_name: Turn keypad 4 on
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_4_date_start'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_4_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_5_temp_lock_turn_on:
+      friendly_name: Turn keypad 5 on
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_5_date_start'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_5_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_6_temp_lock_turn_on:
+      friendly_name: Turn keypad 6 on
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_6_date_start'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_6_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_7_temp_lock_turn_on:
+      friendly_name: Turn keypad 7 on
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_7_date_start'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_7_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_8_temp_lock_turn_on:
+      friendly_name: Turn keypad 8 on
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_8_date_start'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_8_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+
+    keypad_1_temp_lock_turn_off:
+      friendly_name: Turn keypad 1 off
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_1_date_end'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_1_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_2_temp_lock_turn_off:
+      friendly_name: Turn keypad 2 off
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_2_date_end'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_2_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_3_temp_lock_turn_off:
+      friendly_name: Turn keypad 3 off
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_3_date_end'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_3_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_4_temp_lock_turn_off:
+      friendly_name: Turn keypad 4 off
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_4_date_end'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_4_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_5_temp_lock_turn_off:
+      friendly_name: Turn keypad 5 off
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_5_date_end'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_5_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_6_temp_lock_turn_off:
+      friendly_name: Turn keypad 6 off
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_6_date_end'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_6_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_7_temp_lock_turn_off:
+      friendly_name: Turn keypad 7 off
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_7_date_end'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_7_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+    keypad_8_temp_lock_turn_off:
+      friendly_name: Turn keypad 8 off
+      entity_id: sensor.date_time
+      value_template: >-
+        {% set input = states['input_datetime']['door_keypad_8_date_end'] %}
+        {% set time_now = states['sensor']['date_time'].state | replace(',', '') ~ ':00' %}
+        {% set access_schedule = states['input_select']['door_keypad_8_access_schedule'].state %}
+        {{ (access_schedule == 'Temporary' or access_schedule == 'Recurring') and input.state == time_now }}
+
+
+# This Sensor uses the alarm type to determine what is happening with the lock.  The codes should be standard across locks
+# but not all locks will use all values. As before make sure the names matches your locks
+
+    front_door_report:
+      friendly_name: 'Front Door Report'
+      value_template: >
+        {% set number = states('sensor.front_door_lock_alarm_level') %}
+        {% set alarm_type_value = states('sensor.front_door_lock_alarm_type') %}
+        {% set entity_id = 'input_text.door_keypad_' + number + '_name' %}
+        {% set user = 'Master' if number == '0' else states(entity_id) %}
+        {% set alarm_type_value = '24' if (as_timestamp(now())-as_timestamp(states.lock.front_door.last_changed)) < 15 and (as_timestamp(now())-as_timestamp(states.sensor.front_door_lock_alarm_type.last_changed)) > 15  and (states.lock.front_door.state) == 'locked' else alarm_type_value %}
+        {% set alarm_type_value = '25' if (as_timestamp(now())-as_timestamp(states.lock.front_door.last_changed)) < 15 and (as_timestamp(now())-as_timestamp(states.sensor.front_door_lock_alarm_type.last_changed)) > 15  and (states.lock.front_door.state) == 'unlocked' else alarm_type_value %}
+        {% set alarm_type_general_actions = {
+          '0':'No Status Reported',          
+          '9':'Lock Jammed',
+          '17':'Keypad Lock Jammed',
+          '21':'Manual Lock',
+          '22':'Manual Unlock',
+          '23':'HA Lock Jammed',
+          '24':'HA Lock',
+          '25':'HA Unlock',
+          '26':'Auto Lock Jammed',
+          '27':'Auto Lock',
+          '32':'All Codes Deleted',
+          '161':'Bad Code Entered',
+          '167':'Battery Low',
+          '168':'Battery Critical',
+          '169':'Battery Too Low To Operate Lock' } %}
+        {% set alarm_type_lock_actions = {
+          '18':'Keypad Lock',
+          '19':'Keypad Unlock',
+          '162':'Lock Code Attempt Outside of Schedule' } %}
+        {% set alarm_type_code_actions = {
+          '33':'Code Deleted',
+          '112':'Code Changed',
+          '113':'Duplicate Code' } %}
+        {% if alarm_type_value in alarm_type_code_actions %}
+          {{ alarm_type_code_actions[alarm_type_value] }} (Code {{ number}})
+        {% elif alarm_type_value in alarm_type_lock_actions and number == '0' %}
+          {{ alarm_type_lock_actions[alarm_type_value] }} with Schlage Button
+        {% elif alarm_type_value in alarm_type_lock_actions  %}
+          {{ alarm_type_lock_actions[alarm_type_value] }} with Code {{ number }} ({{ user }})
+        {% elif alarm_type_value in alarm_type_general_actions %}
+          {{ alarm_type_general_actions[alarm_type_value] }}
+        {% else %}
+          Unknown Alarm Type Value {{ states('sensor.front_door_lock_alarm_type') }}
+        {% endif %}
+
+# This sensor will just be a friendly name of whoever unlocked the door,  Use for other automations if you want.
+    frontdoor_code:
+      friendly_name: 'Last Person to unlock with Keypad (Front Door)'
+      value_template: >
+        {% set number = states('sensor.front_door_lock_alarm_level') %}
+        {% set entity_id = 'input_text.door_keypad_' + number + '_name' %}
+        {% set user = 'Master' if number == '0' else states(entity_id) %}
+        {{ user }}
+
+
+#  Battery info, use your custom name if needed.  Also I had some issues that I thought was related to this
+#  and had this commented out for a while, but it seems to be working well now, so might not be a problem
+#  if you notice any issues, try commenting this out
+#      door_lock_batteries_front_door:
+#        friendly_name: Front Door Lock Battery Level
+#        value_template:  >
+#           {% if states.zwave.front_door_lock %}
+#            {{ states.zwave.front_door_lock.attributes.battery_level }}
+#          {% else %}
+#            unknown
+#          {% endif %}
+#        unit_of_measurement: '%'
+#        icon_template: >-
+#          {% set battery_level = states('sensor.front_door_lock_battery_level')|int('unknown') %}
+#          {% set battery_round = (battery_level|int / 10)|int * 10 %}
+#          {% if battery_level == 'unknown' %}
+#            mdi:battery-unknown
+#          {% else %}
+#            {% if battery_round >= 100 %}
+#              mdi:battery
+#            {% elif battery_round > 0 %}
+#              mdi:battery-{{ battery_round }}
+#            {% else %}
+#              mdi:battery-alert
+#            {% endif %}
+#          {% endif %}
+

@@ -1,0 +1,67 @@
+- alias: Bedroom Bed Button (triple)
+  id: bbr_button_west_bed_triple
+  initial_state: true
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/bbr_button_west_bed
+  condition:
+    condition: template
+    value_template: '{{ "triple" == trigger.payload_json.click }}'
+  action:
+  - service: fan.toggle
+    data:
+      entity_id: fan.bbr_fan
+
+- alias: Bedroom Bed Button (double)
+  id: bbr_button_west_bed_double
+  initial_state: true
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/bbr_button_west_bed
+  condition:
+    condition: template
+    value_template: '{{ "double" == trigger.payload_json.click }}'
+  action:
+  - service: scene.turn_on
+    data:
+      entity_id: scene.all_off
+
+- id: bbr_button_west_bed_single_turn_on
+  initial_state: true
+  alias: Bedroom Bed Button (single)
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/bbr_button_west_bed
+  condition:
+    condition: and
+    conditions:
+        - condition: template
+          value_template: '{{ "single" == trigger.payload_json.click }}'
+        - condition: state
+          entity_id: light.back_bedroom
+          state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+        entity_id: light.back_bedroom
+        brightness: 10
+
+- id: bbr_button_west_bed_single_turn_off
+  initial_state: true
+  alias: Bedroom Bed Button (single)
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/bbr_button_west_bed
+  condition:
+    condition: and
+    conditions:
+        - condition: template
+          value_template: '{{ "single" == trigger.payload_json.click }}'
+        - condition: state
+          entity_id: light.back_bedroom
+          state: 'on'
+  action:
+  - service: light.turn_off
+    data:
+        entity_id: light.back_bedroom
+

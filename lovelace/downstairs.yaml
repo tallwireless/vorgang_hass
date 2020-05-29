@@ -1,0 +1,479 @@
+---
+title: Downstairs
+cards:
+    - type: vertical-stack
+      title: Living Room
+      cards: 
+        - type: horizontal-stack
+          cards:
+            - type: entity-button
+              entity: light.lvr_overhead
+              name: Overhead Light
+            - type: vertical-stack
+              cards:
+                - type: entity-button
+                  show_icon: false
+                  entity: light.lvr_overhead
+                  name: High
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.lvr_overhead
+                        brightness_pct: 100
+                - type: entity-button
+                  show_icon: false
+                  entity: light.lvr_overhead
+                  name: Medium
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.lvr_overhead
+                        brightness_pct: 66
+                - type: entity-button
+                  show_icon: false
+                  entity: light.lvr_overhead
+                  name: Low
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.lvr_overhead
+                        brightness_pct: 33
+        - type: horizontal-stack
+          cards:
+            - type: entity-button
+              entity: light.couch_lamps
+              name: Couch Lamps
+            - type: vertical-stack
+              cards:
+                - type: entity-button
+                  show_icon: false
+                  entity: light.couch_lamps
+                  name: High
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.couch_lamps
+                        brightness_pct: 100
+                - type: entity-button
+                  show_icon: false
+                  entity: light.couch_lamps
+                  name: Medium
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.couch_lamps
+                        brightness_pct: 66
+                - type: entity-button
+                  show_icon: false
+                  entity: light.couch_lamps
+                  name: Low
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.couch_lamps
+                        brightness_pct: 33
+        - type: horizontal-stack
+          cards:
+            - type: entity-button
+              entity: fan.lvr_fan
+              name: Overhead Fan
+            - type: vertical-stack
+              cards:
+                - type: entity-button
+                  show_icon: false
+                  entity: fan.lvr_fan
+                  name: High
+                  tap_action: 
+                    action: call-service
+                    service: fan.set_speed
+                    service_data:
+                        entity_id: fan.lvr_fan
+                        speed: high
+                - type: entity-button
+                  entity: fan.lvr_fan
+                  show_icon: false
+                  name: Medium
+                  tap_action: 
+                    action: call-service
+                    service: fan.set_speed
+                    service_data:
+                        entity_id: fan.lvr_fan
+                        speed: medium
+                - type: entity-button
+                  show_icon: false
+                  entity: fan.lvr_fan
+                  name: Low
+                  tap_action: 
+                    action: call-service
+                    service: fan.set_speed
+                    service_data:
+                        entity_id: fan.lvr_fan
+                        speed: low
+    - type: vertical-stack
+      title: Dining Room
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: entity-button
+              entity: light.drm_overhead
+              name: Overhead Light
+            - type: vertical-stack
+              cards:
+                - type: entity-button
+                  show_icon: false
+                  entity: light.drm_overhead
+                  name: High
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.drm_overhead
+                        brightness_pct: 100
+                - type: entity-button
+                  show_icon: false
+                  entity: light.drm_overhead
+                  name: Medium
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.drm_overhead
+                        brightness_pct: 66
+                - type: entity-button
+                  show_icon: false
+                  entity: light.drm_overhead
+                  name: Low
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.drm_overhead
+                        brightness_pct: 33
+        - type: horizontal-stack
+          cards:
+            - type: entity-button
+              entity: light.dinning_room_accent
+              name: Accent Lights
+              icon_height: 85px
+            - type: vertical-stack
+              cards:
+                - type: entity-button
+                  show_icon: false
+                  entity: light.dinning_room_accent
+                  name: High
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.dinning_room_accent
+                        brightness_pct: 100
+                - type: entity-button
+                  show_icon: false
+                  entity: light.dinning_room_accent
+                  name: Medium
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.dinning_room_accent
+                        brightness_pct: 66
+                - type: entity-button
+                  show_icon: false
+                  entity: light.dinning_room_accent
+                  name: Low
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.dinning_room_accent
+                        brightness_pct: 33
+            - type: vertical-stack
+              cards:
+                - type: entity-button
+                  show_icon: false
+                  entity: light.dinning_room_accent
+                  name: Orange
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.dinning_room_accent
+                        profile: orange-accent
+                - type: entity-button
+                  show_icon: false
+                  entity: light.dinning_room_accent
+                  name: Blue
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.dinning_room_accent
+                        profile: blue-accent
+                - type: entity-button
+                  show_icon: false
+                  entity: light.dinning_room_accent
+                  name: White
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.dinning_room_accent
+                        profile: white-full
+        - type: horizontal-stack
+          cards:
+            - type: entity-button
+              entity: light.bar_accent
+              name: Bar Lights
+              icon_height: 85px
+            - type: vertical-stack
+              cards:
+                - type: entity-button
+                  show_icon: false
+                  entity: light.bar_accent
+                  name: High
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.bar_accent
+                        brightness_pct: 100
+                - type: entity-button
+                  show_icon: false
+                  entity: light.bar_accent
+                  name: Medium
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.bar_accent
+                        brightness_pct: 66
+                - type: entity-button
+                  show_icon: false
+                  entity: light.bar_accent
+                  name: Low
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.bar_accent
+                        brightness_pct: 33
+            - type: vertical-stack
+              cards:
+                - type: entity-button
+                  show_icon: false
+                  entity: light.bar_accent
+                  name: Orange
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.bar_accent
+                        profile: orange-accent
+                - type: entity-button
+                  show_icon: false
+                  entity: light.bar_accent
+                  name: Blue
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.bar_accent
+                        profile: blue-accent
+                - type: entity-button
+                  show_icon: false
+                  entity: light.bar_accent
+                  name: White
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.bar_accent
+                        profile: white-full
+    - type: vertical-stack
+      title: Kitchen
+      cards:
+        - type: horizontal-stack
+          cards:
+            - type: entity-button
+              entity: light.kit_overhead
+              name: Overhead Light
+            - type: vertical-stack
+              cards:
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_overhead
+                  name: High
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_overhead
+                        brightness_pct: 100
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_overhead
+                  name: Medium
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_overhead
+                        brightness_pct: 66
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_overhead
+                  name: Low
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_overhead
+                        brightness_pct: 33
+        - type: horizontal-stack
+          cards:
+            - type: entity-button
+              entity: light.kit_under_cabinet
+              name: Under Cabinet
+              icon_height: 85px
+            - type: vertical-stack
+              cards:
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_under_cabinet
+                  name: High
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_under_cabinet
+                        brightness_pct: 100
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_under_cabinet
+                  name: Medium
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_under_cabinet
+                        brightness_pct: 66
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_under_cabinet
+                  name: Low
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_under_cabinet
+                        brightness_pct: 33
+            - type: vertical-stack
+              cards:
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_under_cabinet
+                  name: Orange
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_under_cabinet
+                        profile: orange-accent
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_under_cabinet
+                  name: Blue
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_under_cabinet
+                        profile: blue-accent
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_under_cabinet
+                  name: White
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_under_cabinet
+                        profile: white-full
+                        white_value: 100
+                        brightness: 1
+        - type: horizontal-stack
+          cards:
+            - type: entity-button
+              entity: light.kit_above_cabinet
+              name: Above Cabinet
+              icon_height: 85px
+            - type: vertical-stack
+              cards:
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_above_cabinet
+                  name: High
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_above_cabinet
+                        brightness_pct: 100
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_above_cabinet
+                  name: Medium
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_above_cabinet
+                        brightness_pct: 66
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_above_cabinet
+                  name: Low
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_above_cabinet
+                        brightness_pct: 33
+            - type: vertical-stack
+              cards:
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_above_cabinet
+                  name: Orange
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_above_cabinet
+                        profile: orange-accent
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_above_cabinet
+                  name: Blue
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_above_cabinet
+                        profile: blue-accent
+                - type: entity-button
+                  show_icon: false
+                  entity: light.kit_above_cabinet
+                  name: White
+                  tap_action: 
+                    action: call-service
+                    service: light.turn_on
+                    service_data:
+                        entity_id: light.kit_above_cabinet
+                        profile: white-full

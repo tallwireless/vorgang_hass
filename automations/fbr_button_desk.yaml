@@ -1,0 +1,107 @@
+- id: fbr_button_desk_brightness_up_click
+  initial_state: true
+  alias: "Front Bedroom Desk Remote - Overhead Lights"
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/fbr_button_desk
+  condition:
+    condition: template
+    value_template: '{{ "brightness_up_click" == trigger.payload_json.action }}'
+  action:
+  - service: light.toggle
+    data:
+        entity_id: light.front_bedroom_overhead
+        kelvin: 3000
+
+- id: fbr_button_desk_brightness_up_hold
+  initial_state: true
+  alias: "Front Bedroom Desk Remote - Fan"
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/fbr_button_desk
+  condition:
+    condition: template
+    value_template: '{{ "brightness_up_hold" == trigger.payload_json.action }}'
+  action:
+  - service: fan.toggle
+    data:
+        entity_id: fan.fbr_fan
+
+- id: fbr_button_desk_brightness_down_click
+  initial_state: true
+  alias: "Front Bedroom Desk Remote - Under Monitor"
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/fbr_button_desk
+  condition:
+    condition: template
+    value_template: '{{ "brightness_down_click" == trigger.payload_json.action }}'
+  action:
+  - service: script.turn_on
+    data:
+        entity_id: script.fbr_under_monitor_increment
+
+- id: fbr_button_desk_brightness_down_hold
+  initial_state: true
+  alias: "Front Bedroom Desk Remote - Under Monitor"
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/fbr_button_desk
+  condition:
+    condition: template
+    value_template: '{{ "brightness_down_hold" == trigger.payload_json.action }}'
+  action:
+  - service: light.toggle
+    data:
+        entity_id: light.fbr_desk_monitor_under
+
+- id: fbr_button_desk_arrow_right_click
+  initial_state: true
+  alias: "Front Bedroom Desk Remote - Camera Light"
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/fbr_button_desk
+  condition:
+    condition: template
+    value_template: '{{ "arrow_right_click" == trigger.payload_json.action }}'
+  action:
+  - service: light.toggle
+    data:
+        entity_id: light.fbr_desk_webcam_light
+
+- id: fbr_button_desk_arrow_left_click
+  initial_state: true
+  alias: "Front Bedroom Desk Remote - Toggle Closet"
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/fbr_button_desk
+  condition:
+    condition: template
+    value_template: '{{ "arrow_left_click" == trigger.payload_json.action }}'
+  action:
+  - service: switch.toggle
+    data:
+        entity_id: switch.fbr_closet
+
+- id: fbr_button_desk_toggle
+  initial_state: true
+  alias: "Front Bedroom Desk Remote - Toggle Desk"
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/fbr_button_desk
+  condition:
+    condition: template
+    value_template: '{{ "toggle" == trigger.payload_json.action }}'
+  action:
+      - service: switch.toggle
+        data:
+            entity_id: switch.fbr_desk_candle
+      - service: light.toggle
+        data:
+            entity_id: light.fbr_desk_monitor_back
+            effect: "Slow Wide Rainbow"
+      - service: light.toggle
+        data:
+            entity_id: light.fbr_desk_monitor_under
+
+

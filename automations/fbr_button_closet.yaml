@@ -1,0 +1,13 @@
+- id: fbr_button_closet_single
+  initial_state: true
+  alias: Front Bedroom Closet Button - Single
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/fbr_button_closet
+  condition:
+    condition: template
+    value_template: '{{ "single" == trigger.payload_json.click }}'
+  action:
+  - service: switch.toggle
+    data:
+      entity_id: switch.fbr_closet

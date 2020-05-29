@@ -1,0 +1,7 @@
+living_room_lights:
+  name: Living Room
+  entities:
+    - light.lvr_couch_south
+    - light.lvr_couch_north
+    - light.lvr_tv
+

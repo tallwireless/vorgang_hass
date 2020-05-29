@@ -1,0 +1,15 @@
+- id: charles-enters-house
+  initial_state: true
+  alias: Charles Enters
+  trigger:
+  - entity_id: binary_sensor.test_test_test
+    platform: state
+    to: Charles
+  condition:
+  - condition: state
+    entity_id: sun.sun
+    state: below_horizon
+  action:
+  - entity_id: scene.relax_1
+    service: scene.turn_on
+

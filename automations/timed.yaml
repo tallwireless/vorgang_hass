@@ -1,0 +1,30 @@
+- id: sunset_lights
+  initial_state: true
+  alias: Sunset Lights On
+  trigger:
+  - event: sunset
+    platform: sun
+  condition: []
+  action:
+  - data:
+      entity_id: switch.tplink_02
+    service: switch.turn_on
+  - data:
+      entity_id: switch.front_porch_light
+    service: switch.turn_on
+
+- id: midnight_automations
+  alias: Midnight Automations
+  initial_state: true
+  trigger:
+  - at: 00:00:00
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: switch.tplink_02
+    service: switch.turn_off
+  - data:
+      entity_id: switch.front_porch_light
+    service: switch.turn_off
+

@@ -1,0 +1,57 @@
+- id: uph_button_on
+  initial_state: true
+  alias: Upstairs Hall - Turn on Hall light (full)
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/uph_button
+  condition:
+    condition: template
+    value_template: '{{ "on" == trigger.payload_json.click }}'
+  action:
+  - service: light.turn_on
+    data:
+        entity_id: light.upstairs_hallway
+        brightness_pct: 100
+        kelvin: 3500
+
+- id: uph_button_off
+  initial_state: true
+  alias: Upstairs - Turn off hall light
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/uph_button
+  condition:
+    condition: template
+    value_template: '{{ "off" == trigger.payload_json.click }}'
+  action:
+  - service: light.turn_off
+    data:
+        entity_id: light.upstairs_hallway
+
+- id: uph_button_brightness_down
+  initial_state: true
+  alias: Upstairs Hall - Turn off whole house
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/uph_button
+  condition:
+    condition: template
+    value_template: '{{ "brightness_down" == trigger.payload_json.click }}'
+  action:
+  - service: scene.turn_on
+    data:
+        entity_id: scene.all_off
+
+- id: uph_button_brightness_up
+  initial_state: true
+  alias: Upstairs Hall - Turn on Bedtime
+  trigger:
+    platform: mqtt
+    topic: zigbee2mqtt/uph_button
+  condition:
+    condition: template
+    value_template: '{{ "brightness_up" == trigger.payload_json.click }}'
+  action:
+  - service: scene.turn_on
+    data:
+        entity_id: scene.uph_evening

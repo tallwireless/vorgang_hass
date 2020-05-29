@@ -1,0 +1,17 @@
+#- id: system_reset_zigbee2mqtt_radio
+#  alias: Reset the Zigbee2MQTT Radio
+#  initial_state: 'on'
+#  trigger:
+#    platform: time_pattern
+#    hours: /4
+#  action:
+#    service: script.zigbee2mqtt_reset
+
+- id: system_heal_zwave_network
+  alias: Heal Z-Wave Network
+  initial_state: 'on'
+  trigger:
+    platform: time
+    at: '2:31:00'
+  action:
+    service: zwave.heal_network

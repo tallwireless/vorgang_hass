@@ -1,0 +1,6 @@
+---
+title: Control Center
+views:
+   - !include lovelace/quick.yaml
+   - !include lovelace/downstairs.yaml
+   - !include lovelace/sys-ctrl.yaml

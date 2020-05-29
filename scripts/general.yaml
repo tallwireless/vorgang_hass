@@ -1,0 +1,7 @@
+slack_info:
+  alias: Slack - Info
+  sequence:
+  - data:
+      messsage: 'INFO:  message'
+    service: notify.slack
+

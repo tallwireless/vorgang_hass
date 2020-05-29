@@ -1,0 +1,222 @@
+- id: door_state_change_log
+  initial_state: true
+  alias: Log - Door State Change
+  trigger:
+  - platform: event
+    event_type: state_changed
+    event_data:
+      entity_id: sensor.frontdoor_code
+  action:
+  - service: notify.slack
+    data_template:
+      message: 'INFO: Front state change: {{ states.sensor.frontdoor_code.state}}'
+
+- alias: Keypad switch turned on
+  initial_state: true
+  trigger:
+  - platform: state
+    to: 'on'
+    entity_id:
+    - input_boolean.door_keypad_1_front_switch
+    - input_boolean.door_keypad_2_front_switch
+    - input_boolean.door_keypad_3_front_switch
+    - input_boolean.door_keypad_4_front_switch
+    - input_boolean.door_keypad_5_front_switch
+    - input_boolean.door_keypad_6_front_switch
+    - input_boolean.door_keypad_7_front_switch
+    - input_boolean.door_keypad_8_front_switch
+  condition:
+  - condition: template
+    value_template: '{% set object_id = trigger.to_state.object_id %} {% set code_slot
+      = "_".join(object_id.split("_")[2:-2]) %} {% set select_id = ''door_keypad_''
+      ~ code_slot ~ ''_access_schedule'' %} {{ states[''input_select''][select_id].state
+      in [''Always'', ''Enabled''] }}'
+  action:
+  - service: lock.set_usercode
+    data_template:
+      node_id: '{% set object_id = trigger.to_state.object_id %} {% set lock_name
+        = "_".join(object_id.split("_")[3:-1]) %} {% set lock_id = ''lock_'' ~ lock_name
+        ~ ''_door_lock'' %} {{ states[''lock''][lock_id].attributes.node_id }}'
+      code_slot: '{% set object_id = trigger.to_state.object_id %} {% set code_slot
+        = "_".join(object_id.split("_")[2:-2]) %} {{ code_slot }}'
+      usercode: '{% set object_id = trigger.to_state.object_id %} {% set code_slot
+        = "_".join(object_id.split("_")[2:-2]) %} {% set user_code_id = ''door_keypad_''
+        ~ code_slot ~ ''_code'' %} {{ states[''input_text''][user_code_id].state }}'
+  id: f82e855ce83c48e8a24e7ff84c74e196
+- alias: Keypad switch turned off
+  initial_state: true
+  trigger:
+  - platform: state
+    to: 'off'
+    entity_id:
+    - input_boolean.door_keypad_1_front_switch
+    - input_boolean.door_keypad_2_front_switch
+    - input_boolean.door_keypad_3_front_switch
+    - input_boolean.door_keypad_4_front_switch
+    - input_boolean.door_keypad_5_front_switch
+    - input_boolean.door_keypad_6_front_switch
+    - input_boolean.door_keypad_7_front_switch
+    - input_boolean.door_keypad_8_front_switch
+  condition:
+  - condition: template
+    value_template: '{% set object_id = trigger.to_state.object_id %} {% set code_slot
+      = "_".join(object_id.split("_")[2:-2]) %} {% set select_id = ''door_keypad_''
+      ~ code_slot ~ ''_access_schedule'' %} {{ states[''input_select''][select_id].state
+      in [''Always'', ''Disabled''] }}'
+  action:
+  - service: lock.clear_usercode
+    data_template:
+      node_id: '{% set object_id = trigger.to_state.object_id %} {% set lock_name
+        = "_".join(object_id.split("_")[3:-1]) %} {% set lock_id = ''lock_'' ~ lock_name
+        ~ ''_door_lock'' %} {{ states[''lock''][lock_id].attributes.node_id }}'
+      code_slot: '{% set object_id = trigger.to_state.object_id %} {% set code_slot
+        = "_".join(object_id.split("_")[2:-2]) %} {{ code_slot }}'
+  id: ba2e5f4929fc40cc91e42b4fe1626ba4
+- alias: Keypad temporary code start (Front)
+  trigger:
+  - platform: state
+    to: 'True'
+    entity_id:
+    - sensor.keypad_1_temp_lock_turn_on
+    - sensor.keypad_2_temp_lock_turn_on
+    - sensor.keypad_3_temp_lock_turn_on
+    - sensor.keypad_4_temp_lock_turn_on
+    - sensor.keypad_5_temp_lock_turn_on
+    - sensor.keypad_6_temp_lock_turn_on
+    - sensor.keypad_7_temp_lock_turn_on
+    - sensor.keypad_8_temp_lock_turn_on
+  condition:
+  - condition: template
+    value_template: '{% set object_id = trigger.to_state.object_id %} {% set code_slot
+      = object_id[7:-18] %} {% set input = ''door_keypad_'' ~ code_slot ~ ''_front_switch''
+      %} {{ states[''input_boolean''][input].state == ''on'' }}'
+  action:
+  - service: lock.set_usercode
+    data_template:
+      usercode: '{% set object_id = trigger.to_state.object_id %} {% set code_slot
+        = object_id[7:-18] %} {% set input = ''door_keypad_'' ~ code_slot ~ ''_code''
+        %} {{ states[''input_text''][input].state }}'
+      node_id: '{{ states[''lock''][''lock_front_door_lock''].attributes.node_id }}'
+      code_slot: '{% set object_id = trigger.to_state.object_id %} {% set code_slot
+        = object_id[7:-18] %} {{ code_slot }}'
+  id: e56f9af2c7094a709636051334d072ab
+
+- alias: Keypad temporary code end
+  initial_state: true
+  trigger:
+  - platform: state
+    to: 'True'
+    entity_id:
+    - sensor.keypad_1_temp_lock_turn_off
+    - sensor.keypad_2_temp_lock_turn_off
+    - sensor.keypad_3_temp_lock_turn_off
+    - sensor.keypad_4_temp_lock_turn_off
+    - sensor.keypad_5_temp_lock_turn_off
+    - sensor.keypad_6_temp_lock_turn_off
+    - sensor.keypad_7_temp_lock_turn_off
+    - sensor.keypad_8_temp_lock_turn_off
+  action:
+  - service: lock.clear_usercode
+    data_template:
+      node_id: 104
+      code_slot: '{% set object_id = trigger.to_state.object_id %} {% set code_slot
+        = object_id[7:-19] %} {{ code_slot }}   '
+  - condition: and
+    conditions:
+    - condition: template
+      value_template: '{% set object_id = trigger.to_state.object_id %} {% set code_slot
+        = object_id[7:-19] %} {% set input = ''door_keypad_'' ~ code_slot ~ ''_access_schedule''
+        %} {% set input_value = states[''input_select''][input].state %} {{ input_value
+        == ''Temporary'' }}'
+  - service: script.turn_on
+    data_template:
+      entity_id: '{% set object_id = trigger.to_state.object_id %} {% set code_slot
+        = object_id[7:-19] %} {{ ''script.door_keypad_'' ~ code_slot ~ ''_delete''
+        }}'
+  id: 47c8e0ba5ec1459a82d21308e7c443f5
+
+- alias: Keypad set random code for one time use
+  initial_state: true
+  trigger:
+  - platform: state
+    to: Enabled
+    entity_id:
+    - input_select.door_keypad_16_access_schedule
+    - input_select.door_keypad_17_access_schedule
+    - input_select.door_keypad_18_access_schedule
+  action:
+  - service: input_text.set_value
+    data_template:
+      entity_id: '{% set object_id = trigger.to_state.entity_id %} {% set code_slot
+        = "_".join(object_id.split("_")[3:-2]) %} {% set user_code_id = ''input_text.door_keypad_''
+        ~ code_slot ~ ''_code'' %} {{ user_code_id }} '
+      value: '{{ range(1000, 9999) | random }}'
+  id: c974e3267db74938933e243e78e8cdf5
+
+- alias: Keypad clear code after one time use code is used for 16 through 18
+  initial_state: true
+  trigger:
+  - platform: numeric_state
+    entity_id:
+    - sensor.front_door_lock_alarm_level
+    above: 15
+    below: 19
+  condition:
+  - condition: numeric_state
+    entity_id: sensor.ha_runtime_in_minutes
+    above: 1
+  - condition: template
+    value_template: '{{ states(''sensor.front_door_report'').lower().startswith(''keypad
+      unlock'') }}'
+  action:
+  - service: script.turn_on
+    data_template:
+      entity_id: '{% set code_slot = trigger.to_state.state %} {{ ''script.door_keypad_''
+        ~ code_slot ~ ''_delete'' }} '
+  id: 6074f91d04754d46be006ca1e6a8f834
+
+- alias: Keypad clear code after one time use is set to disabled for 16 through 18
+  initial_state: true
+  trigger:
+  - platform: state
+    to: Disabled
+    entity_id:
+    - input_select.door_keypad_16_access_schedule
+    - input_select.door_keypad_17_access_schedule
+    - input_select.door_keypad_18_access_schedule
+  action:
+  - service: script.turn_on
+    data_template:
+      entity_id: '{% set object_id = trigger.to_state.entity_id %} {% set code_slot
+        = "_".join(object_id.split("_")[3:-2]) %} {% set script_to_run = ''script.door_keypad_''
+        ~ code_slot ~ ''_delete'' %} {{ script_to_run }} '
+  id: 7c0a5b3ac9304959bc37f91f812c8c7e
+
+- alias: Set Front Door Lock Options
+  initial_state: true
+  trigger:
+  - platform: state
+    entity_id:
+    - input_select.lock_zwave_option_3_front
+    - input_select.lock_zwave_option_4_front
+    - input_select.lock_zwave_option_5_front
+    - input_select.lock_zwave_option_7_front
+    - input_select.lock_zwave_option_8_front
+    - input_select.lock_zwave_option_9_front
+  action:
+  - service: zwave.set_config_parameter
+    data_template:
+      node_id: 104
+      parameter: "{% if trigger.entity_id == 'input_select.lock_zwave_option_3_front'\
+        \ %}\n  3\n{% elif trigger.entity_id == 'input_select.lock_zwave_option_4_front'\
+        \ %}\n  4\n{% elif trigger.entity_id == 'input_select.lock_zwave_option_5_front'\
+        \ %}\n  5\n{% elif trigger.entity_id == 'input_select.lock_zwave_option_7_front'\
+        \ %}\n  7\n{% elif trigger.entity_id == 'input_select.lock_zwave_option_8_front'\
+        \ %}\n  8\n{% elif trigger.entity_id == 'input_select.lock_zwave_option_9_front'\
+        \ %}\n  9\n{% elif trigger.entity_id == 'input_select.lock_zwave_option_10_front'\
+        \ %}\n  10\n{% elif trigger.entity_id == 'input_select.lock_zwave_option_11_front'\
+        \ %}\n  11\n{% elif trigger.entity_id == 'input_select.lock_zwave_option_15_front'\
+        \ %}\n  15\n{% elif trigger.entity_id == 'input_select.lock_zwave_option_16_front'\
+        \ %}\n  16\n{% else %}\n  0\n{% endif %}"
+      value: '{{ trigger.to_state.state }}'
+  id: 4a72904ddef842f5986d7c92f9dc4a48
