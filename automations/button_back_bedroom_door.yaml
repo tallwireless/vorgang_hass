@@ -31,7 +31,6 @@
     data:
         entity_id: light.back_bedroom
         brightness: 255
-        kelvin: !secret standard_kelvin
 
 - id: button_bedroom_bed_button_door_single_turn_off
   initial_state: true
